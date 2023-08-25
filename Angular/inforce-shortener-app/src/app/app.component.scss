@@ -1,0 +1,48 @@
+.topnav {
+    overflow: hidden;
+    background-color: #333;;
+    display: flex;
+    
+    font-family: "Open Sans", "Helvetica Neue", Helvetica, sans-serif;
+	font-size: 14px;
+	font-weight: 400;
+	letter-spacing: 0.2px;
+	line-height: 1.8em;
+	color: #777;
+
+    a {
+        float: left;
+        color: #f2f2f2;
+        text-align: center;
+        padding: 14px 16px;
+        text-decoration: none;
+        font-size: 17px;
+
+        &:hower {
+            background-color: #ddd;
+            color: black;
+        }
+
+        &.active {
+            background-color: #4CAF50;
+            color: white;
+        }
+    }
+}
+
+
+.example-form-field {
+    margin-right: 20px;
+}
+
+.example-fill-remaining-space {
+    flex: 1 1 auto;
+}
+
+.highlight {
+    background-color:dodgerblue;
+}
+
+.highlight-n {
+    background-color: goldenrod;
+}

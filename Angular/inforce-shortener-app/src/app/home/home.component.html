@@ -1,0 +1,139 @@
+<div style="height: 90%; width: 100%; position: absolute; z-index: 4;" *ngIf="isAddNewActive">
+    <div class="form-wrapper">
+    <div class="center-m">
+        <mat-card>
+          <mat-card-title class="center-general">Add New Url Form</mat-card-title>
+          <mat-card-content>
+            <div class="text-m">
+              <p>
+                <mat-form-field style="width: 300px;">
+                  <input type="text" required matInput placeholder="Url" name="originalUrl" [formControl]="originalUrlForm">
+                </mat-form-field>
+              </p> 
+
+              <div class="button center-general">
+                <button (click)='hideAddRecord()' mat-button class="button-wrap-c"> Cancel </button>
+                <button (click)='addRecord()' mat-button class="button-wrap-c"> Apply </button>
+              </div>
+
+            </div>
+          </mat-card-content>
+        </mat-card>
+      </div>
+    </div>
+</div>
+
+<div class="absolute-blur" *ngIf="isAddNewActive">
+</div>
+
+
+<div class="right-panel">
+    <div class="right-body">
+        <div class="main-text">
+            <span class="title">URL</span>
+
+            <span class="example-fill-remaining-space"></span>
+            
+            <button (click)="showAddRecord()" *ngIf="!isUnauthorised" mat-button class="new-button">
+                <mat-icon>note_add</mat-icon>
+                Add New
+            </button>
+
+            <button *ngIf="isUnauthorised" mat-button class="new-button blured">
+                <mat-icon>note_add</mat-icon>
+                Add New
+            </button>
+        </div>
+        <div class="sub-text">
+            List of original urls and their short form
+        </div>
+        <div class="border-wrapper">
+            <div class="border-line">
+            
+            </div>
+        </div>
+
+        <div class="search-bar">
+            <input class="search-input" [formControl]="searchForm">
+            <button mat-button class="search-button">
+                <mat-icon>find_in_page</mat-icon>
+                Search
+            </button>
+
+            <span class="example-fill-remaining-space"></span>
+
+            <button *ngIf="!isUnauthorised" mat-button class="filter-button" (click)="onFilterMyRecords()">
+                <mat-icon>filter_list</mat-icon>
+                Filter My
+            </button>
+
+            <button *ngIf="isUnauthorised" mat-button class="filter-button blured">
+                <mat-icon>filter_list</mat-icon>
+                Filter My
+            </button>
+        </div>
+
+        <div class="table-wrapper">
+            <div class="user-table">
+                <div class="header-body">
+                    <div class="table-header">
+                        <div class="id-member">
+                            Id
+                        </div>
+
+                        <div class="name-member">
+                            Original
+                        </div>
+                        
+                        <div class="value-member">
+                            Short
+                        </div>
+
+                        <div class="services-member">
+                            Actions
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="table-columns">
+                    <div class="column-body">
+                        <div *ngFor="let element of getFilteredList" style="height: 14.25%;">
+                            <div class="column-wrapper">
+                                <div class="table-column">
+                                    <div class="id-member">
+                                        {{element.id}}
+                                    </div>
+                
+                                    <div class="name-member" style="color: dodgerblue; font-weight: 600;">
+                                        {{element.originalUrl}}
+                                    </div>
+                                    
+                                    <div class="value-member" style="color: dodgerblue; font-weight: 600;">
+                                        {{element.shortUrl}}
+                                    </div>
+            
+                                    <div class="services-member">
+                                        <button *ngIf="!isUnauthorised" mat-button class="details-s-button">
+                                            Details
+                                        </button>
+                                        <button *ngIf="isUnauthorised" mat-button class="details-s-button blured">
+                                            Details
+                                        </button>
+                                        
+                                        <button *ngIf="canDelete(element)" (click)="deleteRecord(element.id)"  mat-button class="delete-s-button">
+                                            Delete
+                                        </button>
+
+                                        <button *ngIf="!canDelete(element)" mat-button class="delete-s-button blured">
+                                            Delete
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

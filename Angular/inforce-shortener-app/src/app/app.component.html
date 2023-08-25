@@ -1,0 +1,12 @@
+<div>
+
+  <div class="topnav">
+    <a id="Home" (mouseover)="changeColor('Home')" (mouseout)="changeColor('Home')" style="margin-left:2%" [routerLink]="['/']" routerLinkActive='active' [routerLinkActiveOptions]="{exact: true}"> Home </a>
+    <a id="About" (mouseover)="changeColor('About')" (mouseout)="changeColor('About')" [routerLink]="['/about']" routerLinkActive='active' [routerLinkActiveOptions]="{exact: true}"> About </a>
+
+    <span class="example-fill-remaining-space"></span>
+    <a id="Login" (mouseover)="changeColor('Login')" (mouseout)="changeColor('Login')" style="margin-right:2%" [routerLink]="['/login']" routerLinkActive='active' [routerLinkActiveOptions]="{exact: true}" *ngIf='!isLoggedIn'>Login</a>
+    <a id="Logout" (mouseover)="changeColor('Logout')" (mouseout)="changeColor('Logout')" style="margin-right:2%" [routerLink]="['/']" (click)="logout()" routerLinkActive='active' [routerLinkActiveOptions]="{exact: true}" *ngIf='isLoggedIn'>Logout</a>
+  </div>
+  <router-outlet></router-outlet>
+</div>

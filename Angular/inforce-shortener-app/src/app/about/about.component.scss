@@ -1,0 +1,54 @@
+.row {
+    display: flex;
+    flex-direction: column; /* Change flex direction to column */
+    height: calc(100vh - 53.2px);
+    width: 100%;
+    background-color: #ececec;
+  }
+  
+  .l-menu {
+    display: flex;
+    flex-direction: column; /* Change flex direction to column */
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .mat-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px; 
+  }
+  
+  .new-button {
+    font-size: 24px;
+    background-color: #4a5f88;
+    color: white;
+
+    margin-top: 10px;
+}
+
+.textarea {
+    display: flex;
+    flex-direction: column; 
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+  }
+  
+  .blured {
+    filter: blur(1px);
+
+    pointer-events: none;
+    cursor: not-allowed;
+}
+::ng-deep {
+    .mat-button.new-button {
+        &:hover {
+            background-color: #394867;
+        }
+    }
+}

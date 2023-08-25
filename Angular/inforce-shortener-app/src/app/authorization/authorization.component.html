@@ -1,0 +1,35 @@
+<div class="row">
+  <div class="l-menu">
+    <mat-card>
+      <mat-card-title>Authorization</mat-card-title>
+      
+      <mat-card-content>
+        <div>
+          <p>
+            <mat-form-field>
+              <input type="text" required matInput placeholder="Username" name="username" [formControl]="usernameForm">
+            </mat-form-field>
+          </p>
+
+          <p>
+            <mat-form-field>
+              <input type="password" required matInput placeholder="Password" name="password" [formControl]="passwordForm">
+            </mat-form-field>
+          </p>
+
+          <p *ngIf="errorMessage != ''" class="error">
+            {{ errorMessage }}
+          </p>
+
+
+          <div class="button">
+            <button (click)='login()' mat-button class="button-wrap">Login</button>
+            <span class="gap"></span>
+            <button (click)='register()' mat-button class="button-wrap">Register</button>
+          </div>
+
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>
